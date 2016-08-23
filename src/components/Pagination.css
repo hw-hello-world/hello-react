@@ -1,0 +1,8 @@
+.Pagination {
+  padding: 10px;
+}
+
+.Pagination .Link {
+  display: inline-block;
+  margin: 5px;
+}

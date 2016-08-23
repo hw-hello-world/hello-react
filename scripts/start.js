@@ -146,7 +146,15 @@ function runDevServer(port) {
     historyApiFallback: true,
     hot: true, // Note: only CSS is currently hot reloaded
     publicPath: config.output.publicPath,
-    quiet: true,
+    //quiet: true,
+    quiet: false,
+    proxy: {
+      '/api/*': {
+        target: 'http://rain.okta1.com:1802/',
+        secure: false,
+        changeOrigin: true // <-- this is important because API needs to know Org.
+      }
+    },
     watchOptions: {
       ignored: /node_modules/
     }

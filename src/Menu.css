@@ -1,0 +1,9 @@
+.App-menu {
+  list-style-type: none;
+  padding: 5px;
+}
+
+.App-menu li {
+  display: inline-block;
+  margin: 0 5px;
+}

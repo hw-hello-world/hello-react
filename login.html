@@ -19,6 +19,7 @@
          oktaSignIn.renderEl(
              { el: '#okta-login-container' },
              function (res) {
+                 console.log('login success:', JSON.stringify(res));
                  if (res.status === 'SUCCESS') { res.session.setCookieAndRedirect('http://localhost:3000/'); }
              }
          );
