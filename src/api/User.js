@@ -1,6 +1,6 @@
 import client from './Client';
 
-import Users from '../models/Users';
+import {Users} from '../models/Users';
 
 const BASE_URL = '/api/v1/users';
 
@@ -15,7 +15,12 @@ function users(url) {
 }
 
 function me() {
-  return client({ url: `${BASE_URL}/me`});
+  return client({ url: `${BASE_URL}/me`})
+    .then(function (resp) {
+      // TODO: maybe create User model.
+      return resp;
+    });
+
 }
 
 export {users, me}

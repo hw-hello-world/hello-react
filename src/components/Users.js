@@ -1,7 +1,7 @@
 import React, { Component } from 'react';
 import R from 'ramda';
 
-import * as API from '../api/Users';
+import * as UserAPI from '../api/User';
 import Pagination from './Pagination';
 
 import './Users.css';
@@ -25,24 +25,19 @@ class Users extends Component {
   constructor() {
     super();
     this.state = {users: null};
-    API.me();
   }
 
   fetch(url) {
 
     var self = this;
 
-    API.users(url)
+    UserAPI.users(url)
       .done(function (users) {
         var exists = self.state['users'];
 
-        // appending
         if (exists) {
           users.xs = R.concat(exists.xs, users.xs);
         }
-        console.log(exists);
-        console.log(users);
-
         self.setState({users: users});
 
       })
