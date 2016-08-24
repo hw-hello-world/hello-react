@@ -1,6 +1,6 @@
 import R from 'ramda';
 
-// TODO: temporary hack.
+// FIXME: temporary hack.
 const DOMAIN = 'http://rain.okta1.com:1802';
 
 class Link {
@@ -22,9 +22,13 @@ class Link {
 
 class Links {
   constructor(linkStr) {
-    var links = R.map(function (link) {
-      return new Link(link);
-    }, linkStr.split(', '));
+    var links = [];
+
+    if (R.is(String, linkStr)) {
+      links = R.map(function (link) {
+        return new Link(link);
+      }, linkStr.split(', '));
+    }
 
     this.links = links;
     this.next = R.filter(function (link) { return link.isNext(); }, links)[0];

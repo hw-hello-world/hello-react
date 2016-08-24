@@ -7,7 +7,7 @@ const BASE_URL = '/api/v1/users';
 // ========== API
 
 function users(url) {
-  return client({ url: url || `${BASE_URL}?limit=5` })
+  return client({ url: url || `${BASE_URL}?limit=20` })
     .then(function (resp, status, xhr) {
       var link = xhr.getResponseHeader("link");
       return new Users(resp, link);

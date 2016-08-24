@@ -9,6 +9,7 @@ class Menu extends Component {
     return (
         <ul className="App-menu">
           <li><NavLink to="/" onlyActiveOnIndex={true}>Home</NavLink></li>
+          <li><NavLink to="/users" onlyActiveOnIndex={true}>Users</NavLink></li>
           <li><NavLink to="/about">About</NavLink></li>
         </ul>
 
