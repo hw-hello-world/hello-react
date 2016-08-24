@@ -2,9 +2,9 @@ import React, { Component } from 'react';
 import Menu from './Menu';
 
 import './App.css';
-import {Users} from './components/Users';
+import {Users} from './Users';
 
-import * as UserAPI from './api/User';
+import * as UserAPI from '../api/User';
 
 
 class AppHeader extends Component {
@@ -47,6 +47,7 @@ class App extends Component {
           <AppHeader />
           <Menu />
           <div className="content">
+          {this.props.children}
           <Users />
           </div>
         </div>

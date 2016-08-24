@@ -1,14 +1,17 @@
 import React, { Component } from 'react';
 
+import NavLink from './NavLink';
+
 import './Menu.css';
 
 class Menu extends Component {
   render() {
     return (
         <ul className="App-menu">
-        <li><a href="#users" className="">Users</a></li>
-        <li><a href="#about" className="">About</a></li>
+          <li><NavLink to="/" onlyActiveOnIndex={true}>Home</NavLink></li>
+          <li><NavLink to="/about">About</NavLink></li>
         </ul>
+
     );
   }
 }
