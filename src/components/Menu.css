@@ -7,3 +7,8 @@
   display: inline-block;
   margin: 0 5px;
 }
+
+.App-menu li .active {
+  text-decoration: none;
+  cursor: text;
+}

@@ -3,7 +3,10 @@
     <head>
         <meta charset="utf-8">
         <meta name="viewport" content="width=device-width, initial-scale=1">
+
         <script src="//ok1static.oktacdn.com/assets/js/sdk/okta-signin-widget/1.4.0/js/okta-sign-in.min.js" type="text/javascript"></script>
+        <script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/lodash.js/4.15.0/lodash.min.js"></script>
+
         <link href="//ok1static.oktacdn.com/assets/js/sdk/okta-signin-widget/1.4.0/css/okta-sign-in.min.css" type="text/css" rel="stylesheet">
         <link href="//ok1static.oktacdn.com/assets/js/sdk/okta-signin-widget/1.4.0/css/okta-theme.css" type="text/css" rel="stylesheet">
 
@@ -11,18 +14,10 @@
     </head>
     <body>
         <div id="okta-login-container"></div>
+
+        <script type="text/javascript" src="/public/login-main.js"></script>
+
         <script type="text/javascript">
-
-         var baseUrl = 'http://rain.okta1.com:1802/';
-         var oktaSignIn = new OktaSignIn({baseUrl: baseUrl});
-
-         oktaSignIn.renderEl(
-             { el: '#okta-login-container' },
-             function (res) {
-                 console.log('login success:', JSON.stringify(res));
-                 if (res.status === 'SUCCESS') { res.session.setCookieAndRedirect('http://localhost:3000/'); }
-             }
-         );
         </script>
     </body>
 </html>

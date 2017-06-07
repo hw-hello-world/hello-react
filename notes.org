@@ -1,11 +1,27 @@
-* TODO Enhancement [0/3]
+* TODO Enhancement [1/3]
 
 - [ ] better if/eles check in JSX
-- [ ] integrate with signin widget
-- [ ] why .tern-port create everywhere !!?
+- [X] integrate with signin widget
+  + session obtained from signin widget is only allowed to work with
+    CORS API.
+- [ ] CSS http://www.material-ui.com/
+  + https://design.google.com/icons/
 
 * Code
 
 #+BEGIN_SRC
 curl -H "Content-Type: application/json" -H "Authorization: SSWS 00CY5DahpcK7EMVPjBmc9yDJsGsdGyIIo34uiX-Cgl" http://rain.okta1.com:1802/api/v1/users
 #+END_SRC
+
+* Reading
+** Removing-User-Interface-Complexity,-or-Why-React-is-Awesome
+   #+BEGIN_QUOTE
+   data is passed down and events flow up
+   #+END_QUOTE
+
+   #+BEGIN_QUOTE
+   State flows down the components, and events flow up. Note that
+   while properties should never be changed, state is
+   mutable. Properties can't be changed because they are inherited
+   every time the component is rendered, so any changes will be lost.
+   #+END_QUOTE

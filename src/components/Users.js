@@ -2,6 +2,7 @@ import React, { Component } from 'react';
 import R from 'ramda';
 
 import * as UserAPI from '../api/User';
+import NavLink from './NavLink';
 import Pagination from './Pagination';
 import Loading from './Loading';
 
@@ -12,7 +13,7 @@ class UserRow extends Component {
   render() {
     return (
       <tr>
-        <td>{this.props.user.profile.fullName}</td>
+        <td><NavLink to={"/user/" + this.props.user.id}>{this.props.user.profile.fullName}</NavLink></td>
         <td>{this.props.user.profile.login}</td>
         <td>{this.props.user.profile.email}</td>
         <td>{this.props.user.status}</td>
@@ -81,4 +82,45 @@ class Users extends Component {
   }
 }
 
-export {Users}
+class User extends Component {
+
+  constructor() {
+    super();
+    this.state = {users: null};
+    this.fetch = this.fetch.bind(this);
+  }
+
+  fetch(url) {
+
+    var self = this;
+
+    return UserAPI.users(url)
+      .done(function (users) {
+        var exists = self.state['users'];
+
+        if (exists) {
+          users.xs = R.concat(exists.xs, users.xs);
+        }
+        self.setState({users: users});
+
+      })
+      .fail(function (error) {
+        console.error('cant read api: ', error);
+      });
+  }
+
+  componentDidMount () {
+    //this.fetch();
+  }
+
+  render() {
+
+    return (
+        <div>
+        <h1>Users Detail</h1>
+      </div>
+    );
+  }
+}
+
+export {Users, User}
