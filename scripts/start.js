@@ -148,12 +148,21 @@ function runDevServer(port) {
     publicPath: config.output.publicPath,
     //quiet: true,
     quiet: false,
+
+    // TODO: auth
+    // - import token from config file? alse set the target URL in webpack config properly (scripts/start.js)
     proxy: {
-      '/api/*': {
+      '/api/*': {    // <--  have to append * otherwise doesn't work.
         target: 'http://rain.okta1.com:1802/',
         //target: 'https://dev-148986-admin.oktapreview.com',
         secure: false,
-        changeOrigin: true // <-- this is important because API needs to know Org.
+        changeOrigin: true, // <-- this is important because API needs to know Org.
+        logLevel: 'debug',
+        headers: {
+          'Authorization': 'SSWS 002w3WpvjwZ7wmx_UHQzXiw6EbfhkDt6P6kYFRrWsM', // rain
+          'Content-Type': 'application/json',
+          'Accept': 'application/json'
+        }
       }
     },
     watchOptions: {
